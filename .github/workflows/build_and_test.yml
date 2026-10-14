@@ -15,8 +15,20 @@ jobs:
         uses: actions/setup-java@v6
         with:
           distribution: temurin
-          java-version: '25'
-      - name: java version
-        run: java --version
-      - name: mavan
-        run: mvn --version
+          java-version: '21'
+      - name: mvn build
+        run: mvn clean install -DskipTests=true
+      - name: mvn testing
+        run: mvn test
+      - name: docker image build
+        run: docker build -t velu31/githubaction_demo:t1
+      - name: docker login
+        uses: docker/login-action@v4
+        with:
+          username: ${{vars.DOCKERHUB_USERNAME}}
+          password: ${{secrets.DOCKERHUB_PASSWORD}}
+
+
+
+
+
