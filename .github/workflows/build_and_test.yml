@@ -39,7 +39,7 @@ jobs:
             SPRING_DATASOURCE_URL: jdbc:mysql://127.0.0.1:3306/githunactiondemo
             SPRING_DATASOURCE_USERNAME: root
       # 5. Build Docker image
-      - name: docker image build
+      - name: docker image build1
         run: docker build -t velu31/githubaction_demo:t1 .
 
       # 6. Login to Docker Hub
